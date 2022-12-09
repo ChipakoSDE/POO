@@ -1,18 +1,17 @@
 public class EjemploAuto {
     public static void main(String[] args) {
 
-        Automovil subaru = new Automovil();
-        Automovil mazda = new Automovil();
+        Automovil subaru = new Automovil("Subaru", "Impreza");
+        Automovil mazda = new Automovil("Mazda", "BT-50");
+        Automovil nissan = new Automovil();
 
-        subaru.fabricante = "Subaru";
-        subaru.modelo = "Impreza";
-        subaru.cilindrada = 2.0;
-        subaru.color = "Negro";
+        subaru.setCilindrada(2.0);
+        subaru.setColor("Negro");
 
-        mazda.fabricante = "Mazda";
-        mazda.modelo = "BT-50";
-        mazda.cilindrada = 3.0;
-        mazda.color = "Rojo";
+        mazda.setCilindrada(3.0);
+        mazda.setColor("Rojo");
+
+        System.out.println("mazda.getFabricante() = " + mazda.getFabricante());
 
         System.out.println(subaru.detalle()); // invoco al método detalle que está definido en la clase Automovil para mostrar los datos
         System.out.println(mazda.detalle());

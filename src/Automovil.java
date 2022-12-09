@@ -1,13 +1,65 @@
 public class Automovil {
 
-    String fabricante;
-    String modelo;
-    String color = "Gris";
-    double cilindrada;
-    int capacidadTanque = 40;
+    private String fabricante;
+    private String modelo;
+    private String color = "Gris";
+    private double cilindrada;
+    private int capacidadTanque = 40;
+
+    // creamos el constructor de la clase Automovil, de esta manera cuando creo una nueva instancia de la clase Automovil
+    // se genera con 2 atributos que los paso como parámetros.
+    public Automovil(String fabricante, String modelo){
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+    }
+    // defino un constructor vacío para poder instanciar Automovil sin pasar parámetros
+    public Automovil(){
+
+    }
+
+    // defino los métodos para obtener y actualizar los atributos privados de la clase
+    public String getFabricante() {
+        return fabricante; // aquí podría usar el this.fabricante
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante; // uso el this.fabricante para que no sea ambiguo, estoy asignando al atributo
+        // de la clase el valor que pasamos como argumento del método
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getCilindrada() {
+        return cilindrada;
+    }
+    public void setCilindrada(double cilindrada){
+        this.cilindrada = cilindrada;
+    }
+
+    public int getCapacidadTanque() {
+        return capacidadTanque;
+    }
+    public void setCapacidadTanque(int capacidadTanque){
+        this.capacidadTanque = capacidadTanque;
+    }
+
 
     public String detalle(){
-        // si estoy en un método y quiere hacer referencia a un atributo de la clase uso el this.Atributo
+        // si estoy en un método y quiero hacer referencia a un atributo de la clase uso el this.Atributo
         StringBuilder sb = new StringBuilder();
         sb.append("auto.fabricante = " + this.fabricante);
         sb.append("\nauto.color = " + this.color);
