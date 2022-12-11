@@ -6,15 +6,34 @@ public class Automovil {
     private double cilindrada;
     private int capacidadTanque = 40;
 
+    // defino un constructor vacío para poder instanciar Automovil sin pasar parámetros
+    public Automovil(){
+
+    }
     // creamos el constructor de la clase Automovil, de esta manera cuando creo una nueva instancia de la clase Automovil
     // se genera con 2 atributos que los paso como parámetros.
     public Automovil(String fabricante, String modelo){
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
-    // defino un constructor vacío para poder instanciar Automovil sin pasar parámetros
-    public Automovil(){
 
+    public Automovil(String fabricante, String modelo, String color) {
+        // podemos optimizar el código reutilizando otros constructores, cuando uso el this() estoy haciendo
+        // referencia a un constructor dentro de la clase
+        this(fabricante, modelo); // con esto evito reescribir las 2 líneas siguientes porque eso ya está escrito en
+        // el constructor anterior
+        //this.fabricante = fabricante;
+        //this.modelo = modelo;
+        this.color = color;
+    }
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+        this(fabricante, modelo, color);
+        this.cilindrada = cilindrada;
+    }
+    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadTanque) {
+        this(fabricante, modelo, color, cilindrada);
+        this.capacidadTanque = capacidadTanque;
     }
 
     // defino los métodos para obtener y actualizar los atributos privados de la clase
@@ -61,20 +80,21 @@ public class Automovil {
     public String detalle(){
         // si estoy en un método y quiero hacer referencia a un atributo de la clase uso el this.Atributo
         StringBuilder sb = new StringBuilder();
-        sb.append("auto.fabricante = " + this.fabricante);
-        sb.append("\nauto.color = " + this.color);
-        sb.append("\nauto.modelo = " + this.modelo);
-        sb.append("\nauto.cilindrada = " + this.cilindrada);
+        sb.append("Fabricante: " + this.fabricante);
+        sb.append("\nModelo: " + this.modelo);
+        sb.append("\nColor: " + this.color);
+        sb.append("\nCilindrada: " + this.cilindrada);
+        sb.append("\nCapacidad Tanque: " + this.capacidadTanque);
         return sb.toString();
         // Siguiendo las buenas prácticas dentro de una clase que representa datos nunca se deberían imprimir datos,
         // por eso devolvemos el String y después al momento de utilizarlo defino que necesito hacer con esos datos.
         // El IDE también me está marcando que no es necesario utilizar StringBuilder, porque es una cadena corta, por
         // lo que podría reducirlo y dejar el código más limpio de la siguiente manera:
         /*
-        return "auto.fabricante = " + this.fabricante +
-                "\nauto.color = " + this.color +
-                "\nauto.modelo = " + this.modelo +
-                "\nauto.cilindrada = " + this.cilindrada;
+        return "Fabricante = " + this.fabricante +
+                "\nColor = " + this.color +
+                "\nModelo = " + this.modelo +
+                "\nCilindrada = " + this.cilindrada;
          */
     }
     public String acelerar(int kmh){
