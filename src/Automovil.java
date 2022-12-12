@@ -1,26 +1,45 @@
 public class Automovil {
 
+    private int id;
     private String fabricante;
     private String modelo;
-    private String color = "Gris";
+    private Color color = Color.GRIS;
     private double cilindrada;
     private int capacidadTanque = 40;
-    private static String colorPatente = "Blanco";
+
+    private static Color colorPatente = Color.BLANCO;
+    private static int capacidadTanqueEstatico = 30;
+    private static int ultimoId;
+
+    // los atributos final son constantes del objeto, por lo general son públicas y estáticas, siempre se nombran
+    // con mayúsculas separando las palabras con _
+    public static final Integer VELOCIDAD_MAX_CARRETERA = 120;
+    public static final int VELOCIDAD_MAX_CIUDAD = 60;
+
+    public static final String COLOR_ROJO = "Rojo";
+    public static final String COLOR_AMARILLO = "Amarillo";
+    public static final String COLOR_AZUL = "Azul";
+    public static final String COLOR_BLANCO = "Blanco";
+    public static final String COLOR_GRIS = "Gris";
+
 
     // defino un constructor vacío para poder instanciar Automovil sin pasar parámetros
     public Automovil(){
-
+        this.id = ++ultimoId; // el atributo estático ultimoId mantiene el valor a través de las instancias,
+                              // solo se incrementa cuando genero una nueva instancia del objeto Automovil
     }
     // creamos el constructor de la clase Automovil, de esta manera cuando creo una nueva instancia de la clase Automovil
     // se genera con 2 atributos que los paso como parámetros.
     public Automovil(String fabricante, String modelo){
+        this();
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
 
-    public Automovil(String fabricante, String modelo, String color) {
+    public Automovil(String fabricante, String modelo, Color color) {
         // podemos optimizar el código reutilizando otros constructores, cuando uso el this() estoy haciendo
-        // referencia a un constructor dentro de la clase
+        // referencia a un constructor dentro de la clase, al constructor que usa los parámetros que pongo entre
+        // paréntesis
         this(fabricante, modelo); // con esto evito reescribir las 2 líneas siguientes porque eso ya está escrito en
         // el constructor anterior
         //this.fabricante = fabricante;
@@ -28,11 +47,11 @@ public class Automovil {
         this.color = color;
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+    public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
         this(fabricante, modelo, color);
         this.cilindrada = cilindrada;
     }
-    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadTanque) {
+    public Automovil(String fabricante, String modelo, Color color, double cilindrada, int capacidadTanque) {
         this(fabricante, modelo, color, cilindrada);
         this.capacidadTanque = capacidadTanque;
     }
@@ -47,6 +66,14 @@ public class Automovil {
         // de la clase el valor que pasamos como argumento del método
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getModelo() {
         return modelo;
     }
@@ -55,11 +82,11 @@ public class Automovil {
         this.modelo = modelo;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -78,12 +105,20 @@ public class Automovil {
     }
 
     // al definir el setter y el getter de atributos estáticos, tienen que ser estáticos también
-    public static String getColorPatente(){
+    public static Color getColorPatente(){
         return colorPatente;
     }
 
-    public static void setColorPatente(String colorPatente) {
+    public static void setColorPatente(Color colorPatente) {
         Automovil.colorPatente = colorPatente; // como es estática no puedo usar el this para identificarlos uso la clase
+    }
+
+    public static int getCapacidadTanqueEstatico(){
+        return capacidadTanqueEstatico;
+    }
+
+    public static void setCapacidadTanqueEstatico(int capacidadTanqueEstatico){
+        Automovil.capacidadTanqueEstatico = capacidadTanqueEstatico;
     }
 
     public String detalle(){
@@ -102,7 +137,8 @@ public class Automovil {
         // El IDE también me está marcando que no es necesario utilizar StringBuilder, porque es una cadena corta, por
         // lo que podría reducirlo y dejar el código más limpio de la siguiente manera:
 
-        return "Fabricante = " + this.fabricante +
+        return "Id = " + this.id +
+                "\nFabricante = " + this.fabricante +
                 "\nColor = " + this.color +
                 "\nModelo = " + this.modelo +
                 "\nCilindrada = " + this.cilindrada +
@@ -125,6 +161,10 @@ public class Automovil {
         return km/(capacidadTanque * (porcentajeNaftaConsumida/100f));
     }
 
+    public static float calcularConsumoEstatico(int km, int porcentajeNaftaConsumida){
+        return km/(capacidadTanqueEstatico * (porcentajeNaftaConsumida/100f));
+    }
+
     // sobrescritura de métodos, sobrescribimos el equals dentro de ésta clase para que solo valide fabricante y modelo
     @Override
     public boolean equals(Object obj) {
@@ -144,11 +184,12 @@ public class Automovil {
         return b;
     }
 
-    // sobrescribo toString para que me muestre toda la informacion del objeto con el formato que quiero
+    // sobrescribo toString para que me muestre toda la información del objeto con el formato que quiero
     @Override
     public String toString() {
         return "Automovil{" +
-                "Fabricante: '" + fabricante + '\'' +
+                "Id: " + id +
+                ", Fabricante: '" + fabricante + '\'' +
                 ", Modelo: '" + modelo + '\'' +
                 ", Color: '" + color + '\'' +
                 ", Cilindrada: " + cilindrada +

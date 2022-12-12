@@ -5,13 +5,13 @@ public class EjemploAuto {
 
         Automovil subaru = new Automovil("Subaru", "Impreza");
         subaru.setCilindrada(2.0);
-        subaru.setColor("Negro");
+        subaru.setColor(Color.AZUL);
 
-        Automovil mazda = new Automovil("Mazda", "BT-50", "Negro", 2.5);
+        Automovil mazda = new Automovil("Mazda", "BT-50", Color.GRIS, 2.5);
         System.out.println("mazda.getFabricante() = " + mazda.getFabricante());
 
-        Automovil nissan = new Automovil("Nissan", "Navara", "Rojo", 3.5, 50);
-        Automovil nissan2 = new Automovil("Nissan", "Navara", "Rojo", 3.5, 50);
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.ROJO, 3.5, 50);
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.ROJO, 3.5, 50);
 
         Date fecha = new Date(); // nueva instancia del objeto Date
 
