@@ -6,6 +6,7 @@ public class Automovil {
     private Color color = Color.GRIS;
     private double cilindrada;
     private int capacidadTanque = 40;
+    private TipoAuto tipo; // atributo para utilizar el enum
 
     private static Color colorPatente = Color.BLANCO;
     private static int capacidadTanqueEstatico = 30;
@@ -121,6 +122,14 @@ public class Automovil {
         Automovil.capacidadTanqueEstatico = capacidadTanqueEstatico;
     }
 
+    public TipoAuto getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAuto tipo) {
+        this.tipo = tipo;
+    }
+
     public String detalle(){
         // si estoy en un método y quiero hacer referencia a un atributo de la clase uso el this.Atributo
         /*
@@ -141,6 +150,8 @@ public class Automovil {
                 "\nFabricante = " + this.fabricante +
                 "\nColor = " + this.color +
                 "\nModelo = " + this.modelo +
+                "\nTipo = " + this.getTipo().getDescripcion() +
+                "\nPuertas = " + this.getTipo().getNumeroPuertas() +
                 "\nCilindrada = " + this.cilindrada +
                 "\nColor Patente = " + colorPatente;
 
@@ -191,6 +202,8 @@ public class Automovil {
                 "Id: " + id +
                 ", Fabricante: '" + fabricante + '\'' +
                 ", Modelo: '" + modelo + '\'' +
+                ", Tipo: '" + getTipo().getDescripcion() + '\'' +
+                ", Puertas: " + getTipo().getNumeroPuertas() +
                 ", Color: '" + color + '\'' +
                 ", Cilindrada: " + cilindrada +
                 ", Capacidad Tanque: " + capacidadTanque + " litros" +

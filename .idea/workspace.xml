@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44fd8cd0-bf13-4217-b7cf-25bc91db682d" name="Changes" comment="10/12">
-      <change afterPath="$PROJECT_DIR$/src/Color.java" afterDir="false" />
+    <list default="true" id="44fd8cd0-bf13-4217-b7cf-25bc91db682d" name="Changes" comment="11/12">
+      <change afterPath="$PROJECT_DIR$/src/EjemploAutoEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TipoAuto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Automovil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Automovil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EjemploAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAuto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EjemploAutoStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAutoStatic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,13 +77,24 @@
       <option name="project" value="LOCAL" />
       <updated>1670722352456</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="11/12">
+      <created>1670881227799</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670881227799</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="08/12" />
     <MESSAGE value="09/12" />
     <MESSAGE value="10/12" />
-    <option name="LAST_COMMIT_MESSAGE" value="10/12" />
+    <MESSAGE value="11/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="11/12" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/POO$EjemploAutoStatic.ic" NAME="EjemploAutoStatic Coverage Results" MODIFIED="1670933631493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
