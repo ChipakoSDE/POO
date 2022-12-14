@@ -2,11 +2,13 @@ public class EjemploAutoEnum {
     public static void main(String[] args) {
 
         Automovil subaru = new Automovil("Subaru", "Impreza");
-        subaru.setCilindrada(2.0);
+        subaru.setMotor(new Motor (2.0, TipoMotor.NAFTERO));
+        subaru.setTanque(new Tanque());
         subaru.setColor(Color.BLANCO);
         subaru.setTipo(TipoAuto.SUV);
 
-        Automovil mazda = new Automovil("Mazda", "BT-50", Color.GRIS, 2.5);
+        Automovil mazda = new Automovil("Mazda", "BT-50", Color.GRIS, new Motor(3,TipoMotor.DIESEL));
+        mazda.setTanque(new Tanque(45));
         mazda.setTipo(TipoAuto.PICKUP);
         System.out.println("Fabricante = " + mazda.getFabricante());
 
@@ -27,7 +29,7 @@ public class EjemploAutoEnum {
         }
         TipoAuto[] tipos = TipoAuto.values();
         for (TipoAuto ta: tipos) {
-            System.out.print(ta + " => " + ta.name() + ", " +
+            System.out.print(ta + " -> " + ta.name() + ", " +
                     ta.getNombre() + ", " + ta.getDescripcion() + ", " + ta.getNumeroPuertas() + " puertas");
             System.out.println();
         }

@@ -4,8 +4,11 @@ public class Automovil {
     private String fabricante;
     private String modelo;
     private Color color = Color.GRIS;
-    private double cilindrada;
-    private int capacidadTanque = 40;
+    private Motor motor;
+    private Tanque tanque;
+    private Persona conductor;
+    private Rueda[] ruedas;
+
     private TipoAuto tipo; // atributo para utilizar el enum
 
     private static Color colorPatente = Color.BLANCO;
@@ -48,13 +51,19 @@ public class Automovil {
         this.color = color;
     }
 
-    public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
+    public Automovil(String fabricante, String modelo, Color color, Motor motor) {
         this(fabricante, modelo, color);
-        this.cilindrada = cilindrada;
+        this.motor = motor;
     }
-    public Automovil(String fabricante, String modelo, Color color, double cilindrada, int capacidadTanque) {
-        this(fabricante, modelo, color, cilindrada);
-        this.capacidadTanque = capacidadTanque;
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Tanque tanque) {
+        this(fabricante, modelo, color, motor);
+        this.tanque = tanque;
+    }
+
+    public Automovil(String fabricante, String modelo, Color color, Motor motor, Tanque tanque, Persona conductor, Rueda[] ruedas) {
+        this(fabricante, modelo, color, motor, tanque);
+        this.conductor = conductor;
+        this.ruedas = ruedas;
     }
 
     // defino los métodos para obtener y actualizar los atributos privados de la clase
@@ -91,20 +100,6 @@ public class Automovil {
         this.color = color;
     }
 
-    public double getCilindrada() {
-        return cilindrada;
-    }
-    public void setCilindrada(double cilindrada){
-        this.cilindrada = cilindrada;
-    }
-
-    public int getCapacidadTanque() {
-        return capacidadTanque;
-    }
-    public void setCapacidadTanque(int capacidadTanque){
-        this.capacidadTanque = capacidadTanque;
-    }
-
     // al definir el setter y el getter de atributos estáticos, tienen que ser estáticos también
     public static Color getColorPatente(){
         return colorPatente;
@@ -130,6 +125,41 @@ public class Automovil {
         this.tipo = tipo;
     }
 
+    public Motor getMotor() {
+        return motor;
+    }
+
+    public void setMotor(Motor motor) {
+        this.motor = motor;
+    }
+
+    public Tanque getTanque() {
+        if(tanque == null){
+            this.tanque = new Tanque();
+        }
+        return tanque;
+    }
+
+    public void setTanque(Tanque tanque) {
+        this.tanque = tanque;
+    }
+
+    public Persona getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Persona conductor) {
+        this.conductor = conductor;
+    }
+
+    public Rueda[] getRuedas() {
+        return ruedas;
+    }
+
+    public void setRuedas(Rueda[] ruedas) {
+        this.ruedas = ruedas;
+    }
+
     public String detalle(){
         // si estoy en un método y quiero hacer referencia a un atributo de la clase uso el this.Atributo
         /*
@@ -146,15 +176,19 @@ public class Automovil {
         // El IDE también me está marcando que no es necesario utilizar StringBuilder, porque es una cadena corta, por
         // lo que podría reducirlo y dejar el código más limpio de la siguiente manera:
 
-        return "Id = " + this.id +
-                "\nFabricante = " + this.fabricante +
-                "\nColor = " + this.color +
-                "\nModelo = " + this.modelo +
-                "\nTipo = " + this.getTipo().getDescripcion() +
-                "\nPuertas = " + this.getTipo().getNumeroPuertas() +
-                "\nCilindrada = " + this.cilindrada +
-                "\nColor Patente = " + colorPatente;
-
+        String detalle = "Id = " + this.id +
+                         "\nFabricante = " + this.fabricante +
+                         "\nColor = " + this.color +
+                         "\nModelo = " + this.modelo;
+        if (getTipo() != null){
+            detalle +=     "\nTipo = " + this.getTipo().getDescripcion() +
+                    "\nPuertas = " + this.getTipo().getNumeroPuertas();
+        }
+        if (this.getMotor() != null){
+            detalle +=   "\nCilindrada = " + this.getMotor().getCilindrada();
+        }
+        detalle +=       "\nColor Patente = " + colorPatente;
+        return detalle;
     }
     public String acelerar(int kmh){
         return "El auto " + this.fabricante + " está acelerando a " + kmh + " km/h";
@@ -169,7 +203,7 @@ public class Automovil {
     }
 
     public float calcularConsumo(int km, int porcentajeNaftaConsumida){
-        return km/(capacidadTanque * (porcentajeNaftaConsumida/100f));
+        return km/(this.getTanque().getCapacidad() * (porcentajeNaftaConsumida/100f));
     }
 
     public static float calcularConsumoEstatico(int km, int porcentajeNaftaConsumida){
@@ -198,15 +232,21 @@ public class Automovil {
     // sobrescribo toString para que me muestre toda la información del objeto con el formato que quiero
     @Override
     public String toString() {
-        return "Automovil{" +
-                "Id: " + id +
-                ", Fabricante: '" + fabricante + '\'' +
-                ", Modelo: '" + modelo + '\'' +
-                ", Tipo: '" + getTipo().getDescripcion() + '\'' +
-                ", Puertas: " + getTipo().getNumeroPuertas() +
-                ", Color: '" + color + '\'' +
-                ", Cilindrada: " + cilindrada +
-                ", Capacidad Tanque: " + capacidadTanque + " litros" +
-                '}';
+        String detalle = "Automovil{" +
+                        "Id: " + id +
+                        ", Fabricante: '" + fabricante + '\'' +
+                        ", Modelo: '" + modelo + '\'';
+        if(getTipo() != null){
+            detalle +=  ", Tipo: '" + getTipo().getDescripcion() + '\'' +
+                        ", Puertas: " + getTipo().getNumeroPuertas();
+        }
+        detalle +=      ", Color: '" + color + '\'';
+
+        if(getMotor() != null) {
+            detalle += ", Cilindrada: " + getMotor().getCilindrada();
+        }
+        detalle += ", Capacidad Tanque: " + getTanque().getCapacidad() + " litros" +
+                    '}';
+        return detalle;
     }
 }

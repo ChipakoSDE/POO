@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44fd8cd0-bf13-4217-b7cf-25bc91db682d" name="Changes" comment="11/12">
-      <change afterPath="$PROJECT_DIR$/src/EjemploAutoEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TipoAuto.java" afterDir="false" />
+    <list default="true" id="44fd8cd0-bf13-4217-b7cf-25bc91db682d" name="Changes" comment="13/12">
+      <change afterPath="$PROJECT_DIR$/src/Motor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rueda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tanque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TipoMotor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Automovil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Automovil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EjemploAuto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAuto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EjemploAutoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAutoEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EjemploAutoStatic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjemploAutoStatic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +36,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IdBqq980SjK8NuUu1vIfUvWEt4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -84,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670881227799</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="13/12">
+      <created>1670949015053</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670949015053</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -92,7 +106,8 @@
     <MESSAGE value="09/12" />
     <MESSAGE value="10/12" />
     <MESSAGE value="11/12" />
-    <option name="LAST_COMMIT_MESSAGE" value="11/12" />
+    <MESSAGE value="13/12" />
+    <option name="LAST_COMMIT_MESSAGE" value="13/12" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/POO$EjemploAutoStatic.ic" NAME="EjemploAutoStatic Coverage Results" MODIFIED="1670933631493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
