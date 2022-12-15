@@ -8,6 +8,7 @@ public class Automovil {
     private Tanque tanque;
     private Persona conductor;
     private Rueda[] ruedas;
+    private int indiceRuedas;
 
     private TipoAuto tipo; // atributo para utilizar el enum
 
@@ -31,6 +32,7 @@ public class Automovil {
     public Automovil(){
         this.id = ++ultimoId; // el atributo estático ultimoId mantiene el valor a través de las instancias,
                               // solo se incrementa cuando genero una nueva instancia del objeto Automovil
+        this.ruedas = new Rueda[5];
     }
     // creamos el constructor de la clase Automovil, de esta manera cuando creo una nueva instancia de la clase Automovil
     // se genera con 2 atributos que los paso como parámetros.
@@ -160,6 +162,13 @@ public class Automovil {
         this.ruedas = ruedas;
     }
 
+    public Automovil addRueda(Rueda rueda){
+        if (indiceRuedas < this.ruedas.length) {
+            this.ruedas[indiceRuedas++] = rueda;
+        }
+        return this;
+    }
+
     public String detalle(){
         // si estoy en un método y quiero hacer referencia a un atributo de la clase uso el this.Atributo
         /*
@@ -180,12 +189,21 @@ public class Automovil {
                          "\nFabricante = " + this.fabricante +
                          "\nColor = " + this.color +
                          "\nModelo = " + this.modelo;
+        if (getConductor() != null) {
+            detalle += "\nConductor = " + this.getConductor();
+        }
         if (getTipo() != null){
             detalle +=     "\nTipo = " + this.getTipo().getDescripcion() +
                     "\nPuertas = " + this.getTipo().getNumeroPuertas();
         }
         if (this.getMotor() != null){
             detalle +=   "\nCilindrada = " + this.getMotor().getCilindrada();
+        }
+        if (getRuedas() != null) {
+            detalle += "\nRuedas:";
+            for (Rueda r : this.getRuedas()) {
+                detalle += "\nFabricante: " + r.getFabricante() + ", Aro: " + r.getAro() + ", Ancho: " + r.getAncho();
+            }
         }
         detalle +=       "\nColor Patente = " + colorPatente;
         return detalle;
