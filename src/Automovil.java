@@ -1,4 +1,4 @@
-public class Automovil {
+public class Automovil implements Comparable<Automovil>{
 
     private int id;
     private String fabricante;
@@ -266,5 +266,10 @@ public class Automovil {
         detalle += ", Capacidad Tanque: " + getTanque().getCapacidad() + " litros" +
                     '}';
         return detalle;
+    }
+
+    @Override
+    public int compareTo(Automovil a) {
+        return this.fabricante.compareTo(a.fabricante);
     }
 }
